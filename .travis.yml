@@ -1,9 +1,6 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
-r:
-- bioc-devel
-- bioc-release
 sudo: false
 
 r_github_packages:
@@ -14,6 +11,9 @@ bioc_packages:
 jobs:
   include:
     - stage: build check
+      r:
+        - bioc-devel
+        - bioc-release
       script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
     - stage: setup files
       script: echo two | tee > ~/$TRAVIS_BUILD_NUMBER/two
