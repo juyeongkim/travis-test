@@ -10,11 +10,10 @@ bioc_packages:
 
 jobs:
   include:
-    - stage: build check
-      - r: bioc-devel
-        - script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
-      - r: bioc-release
-        - script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
+      r:
+      - bioc-devel
+      - bioc-release
+      script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
     - stage: setup files
       script: echo two | tee > ~/$TRAVIS_BUILD_NUMBER/two
     - stage: use shared files
