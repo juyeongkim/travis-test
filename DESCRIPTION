@@ -1,0 +1,10 @@
+Package: travis test
+Type: Package
+Title: A faux package
+Version: 0.1.0
+Author: Ju Yeong Kim
+Maintainer: Ju Yeong Kim <jkim2345@fredhutch.org>
+Description: A faux package
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
