@@ -11,7 +11,9 @@ bioc_packages:
 jobs:
   include:
     - stage: files
-      r: bioc-devel
+      r:
+      - bioc-devel
+      - bioc-release
       script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
     - stage: setup files
       script: echo two | tee > ~/$TRAVIS_BUILD_NUMBER/two
