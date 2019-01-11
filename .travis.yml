@@ -1,0 +1,29 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: r
+r:
+- bioc-devel
+- bioc-release
+cache: packages
+sudo: false
+
+r_github_packages:
+  - jimhester/covr
+bioc_packages:
+  - BiocCheck
+
+jobs:
+  include:
+    - stage: build check
+      script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
+    - stage: setup files
+      script: echo two | tee > ~/$TRAVIS_BUILD_NUMBER/two
+    - stage: use shared files
+      script:
+        - cat ~/$TRAVIS_BUILD_NUMBER/*
+      after_success:
+        - aws s3 rm --recursive s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER # clean up after ourselves
+
+after_success:
+  - aws s3 sync ~/$TRAVIS_BUILD_NUMBER s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER
+
