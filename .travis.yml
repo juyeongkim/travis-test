@@ -10,6 +10,7 @@ bioc_packages:
 
 jobs:
   include:
+    - stage: files
       r: bioc-devel
       script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
     - stage: setup files
