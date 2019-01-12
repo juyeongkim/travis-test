@@ -8,8 +8,10 @@ jobs:
   include:
     - r: devel
       script: echo devel
+      after_success: echo success
     - r: release
       script: echo release
+      after_success: echo success
     - stage: code coverage
       script:
         - echo code coverage
