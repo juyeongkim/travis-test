@@ -23,8 +23,9 @@ before_install:
 jobs:
   include:
     - r: bioc-devel
-      script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
+      script: echo devel | tee > ~/$TRAVIS_BUILD_NUMBER/devel
     - r: bioc-release
+      script: echo release | tee > ~/$TRAVIS_BUILD_NUMBER/release
     - stage: setup files
       script: echo two | tee > ~/$TRAVIS_BUILD_NUMBER/two
     - stage: use shared files
