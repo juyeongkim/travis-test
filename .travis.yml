@@ -2,11 +2,23 @@
 
 language: r
 sudo: false
+cache: packages
 
 r_github_packages:
   - jimhester/covr
 bioc_packages:
   - BiocCheck
+
+env:
+  global:
+    # include $HOME/.local/bin for `aws`
+    - PATH=$HOME/.local/bin:$PATH
+
+before_install:
+  # set up awscli packages
+  - pip install --user awscli
+  - mkdir -p ~/$TRAVIS_BUILD_NUMBER
+  - aws s3 sync s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER ~/$TRAVIS_BUILD_NUMBER
 
 jobs:
   include:
