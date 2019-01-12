@@ -6,9 +6,9 @@ cache: packages
 
 jobs:
   include:
-    - r: bioc-devel
+    - r: devel
       script: echo devel
-    - r: bioc-release
+    - r: release
       script: echo release
     - stage: code coverage
       script:
