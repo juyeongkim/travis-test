@@ -7,9 +7,11 @@ cache: packages
 jobs:
   include:
     - r: devel
-      os:
-        - osx
-        - linux
+      os: osx
+      script: echo devel
+      after_success: echo success
+    - r: devel
+      os: linux
       script: echo devel
       after_success: echo success
     - r: release
