@@ -15,6 +15,11 @@ jobs:
       script: echo devel
       after_success: echo success
     - r: release
+      os: osx
+      script: echo release
+      after_success: echo success
+    - r: release
+      os: linux
       script: echo release
       after_success: echo success
     - stage: code coverage
