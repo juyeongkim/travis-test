@@ -26,12 +26,8 @@ jobs:
       script:
         - echo code coverage
     - stage: test all
-      env:
-        - IDX=""
-        - IDX="1:50"
-        - IDX="51:100"
-        - IDX="101:150"
-        - IDX="151:200"
-        - IDX="201:"
+      os:
+        - osx
+        - linux
       script:
         - echo test all
