@@ -3,31 +3,9 @@
 language: r
 sudo: false
 cache: packages
-
-jobs:
-  include:
-    - r: devel
-      os: osx
-      script: echo devel
-      after_success: echo success
-    - r: devel
-      os: linux
-      script: echo devel
-      after_success: echo success
-    - r: release
-      os: osx
-      script: echo release
-      after_success: echo success
-    - r: release
-      os: linux
-      script: echo release
-      after_success: echo success
-    - stage: code coverage
-      script:
-        - echo code coverage
-    - stage: test all
-      os:
-        - osx
-        - linux
-      script:
-        - echo test all
+before_script:
+  - wget https://download.asperasoft.com/download/sw/cli/3.9.1/ibm-aspera-cli-3.9.1.1401.be67d47-linux-64-release.sh
+  - chmod +x ibm-aspera-cli-3.9.1.1401.be67d47-linux-64-release.sh
+  - ibm-aspera-cli-3.9.1.1401.be67d47-linux-64-release.sh
+script:
+  - ls ~/.aspera/cli
