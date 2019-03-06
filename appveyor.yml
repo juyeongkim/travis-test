@@ -17,13 +17,11 @@ cache:
 before_build:
  - cmd: |
       pwd
-      cd /
-      pwd
-      mkdir /c/aspera
-      wget --no-check-certificate https://download.asperasoft.com/download/sw/cli/3.9.1/ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip -P /c/aspera
-      unzip ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip -d /c/aspera
-      ls /c/aspera
-      ls /c/aspera/cli
+      mkdir C:\aspera
+      wget --no-check-certificate https://download.asperasoft.com/download/sw/cli/3.9.1/ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip -P C:\aspera
+      unzip ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip -d C:\aspera
+      ls C:\aspera
+      ls C:\aspera\cli
       pwd
 
 build_script:
