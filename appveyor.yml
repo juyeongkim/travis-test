@@ -15,13 +15,15 @@ cache:
 
 # Adapt as necessary starting from here
 before_build:
- - pwd
- - cd /
- - mkdir aspera
- - cd aspera
- - wget --no-check-certificate https://download.asperasoft.com/download/sw/cli/3.9.1/ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip
- - unzip ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip
- - ls
+ - (pwd
+ cd /
+ mkdir aspera
+ cd aspera
+ wget --no-check-certificate https://download.asperasoft.com/download/sw/cli/3.9.1/ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip
+ unzip ibm-aspera-cli-3.9.1.1401.be67d47-win-v140_xp-32-release.zip
+ ls
+ cd cli
+ ls)
  - pwd
 
 build_script:
