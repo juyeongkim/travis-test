@@ -1,0 +1,37 @@
+# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
+# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+name: R-CMD-check
+
+jobs:
+  R-CMD-check:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install aspera
+        run: |
+          wget https://download.asperasoft.com/download/sw/cli/3.9.1/ibm-aspera-cli-3.9.1.1401.be67d47-mac-10.7-64-release.sh -P ~/
+          chmod +x ~/ibm-aspera-cli-3.9.1.1401.be67d47-mac-10.7-64-release.sh
+          ~/ibm-aspera-cli-3.9.1.1401.be67d47-mac-10.7-64-release.sh
+      - name: Set ImmPort credentials
+        env:
+          ImmPortUsername: ${{ secrets.IMMPORTUSERNAME }}
+          ImmPortPassword: ${{ secrets.IMMPORTPASSWORD }}
+      - uses: r-lib/actions/setup-r@master
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck"))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+      - name: Test ImmPortR
+        run: |
+          library(ImmPortR)
+          list_immport("/SDY1/StudyFiles")
+        shell: Rscript {0}
