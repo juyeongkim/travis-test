@@ -26,7 +26,7 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"))
+          install.packages(c("remotes", "ImmPortR"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Test ImmPortR
