@@ -26,8 +26,9 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "ImmPortR"))
+          install.packages("remotes")
           remotes::install_deps(dependencies = TRUE)
+          remotes::install_gihtub("RGLab/ImmPortR")
         shell: Rscript {0}
       - name: Test ImmPortR
         run: |
