@@ -8,3 +8,15 @@ Description: A faux package
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
+Imports:
+    utils,
+    httr,
+    jsonlite,
+    processx
+Suggests:
+    testthat,
+    covr,
+    knitr,
+    rmarkdown,
+    ggplot2,
+    dplyr
