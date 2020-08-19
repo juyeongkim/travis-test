@@ -100,4 +100,5 @@ jobs:
         run: |
           library(ImmPortR)
           list_immport("/SDY1/StudyFiles")
+          download_immport(path = "/SDY1/StudyFiles/Casale_Study_Summary_Report.doc", output_dir = tempdir())
         shell: Rscript {0}
