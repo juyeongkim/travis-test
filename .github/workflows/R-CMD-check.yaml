@@ -97,12 +97,17 @@ jobs:
         shell: Rscript {0}
     
       - name: Print
-        env:
-          SUCCESS: ${{ success() }}
         run: |
           echo $GITHUB_RUN_ID
           echo $GITHUB_RUN_NUMBER
           echo $GITHUB_ACTION
           echo $GITHUB_SHA
           echo $GITHUB_REF
-          echo $SUCCESS
+      
+      - name: success
+        if: ${{ success() }}
+        run: echo "SUCCESS!"
+      
+      - name: fail
+        if: ${{ failure() }}
+        run: echo "FAIL!"
