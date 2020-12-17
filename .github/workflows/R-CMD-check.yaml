@@ -96,10 +96,10 @@ jobs:
           download_immport(path = "/SDY1/StudyFiles/Casale_Study_Summary_Report.doc", output_dir = tempdir())
         shell: Rscript {0}
     
-    - name: Print
-      run: |
-        echo $GITHUB_RUN_ID
-        echo $GITHUB_RUN_NUMBER
-        echo $GITHUB_ACTION
-        echo $GITHUB_SHA
-        echo $GITHUB_REF
+      - name: Print
+        run: |
+          echo $GITHUB_RUN_ID
+          echo $GITHUB_RUN_NUMBER
+          echo $GITHUB_ACTION
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
