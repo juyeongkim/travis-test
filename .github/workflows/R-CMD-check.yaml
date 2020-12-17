@@ -103,3 +103,5 @@ jobs:
           echo $GITHUB_ACTION
           echo $GITHUB_SHA
           echo $GITHUB_REF
+          success()
+          echo success()
