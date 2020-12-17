@@ -109,5 +109,5 @@ jobs:
         run: echo "FAIL!"
       
       - name: success
-        if: ${{ success() }}
-        run: echo "SUCCESS!"
+        if: ${{ success() }} || ${{ cancelled() }}
+        run: echo "SUCCESS! or cancelled?"
