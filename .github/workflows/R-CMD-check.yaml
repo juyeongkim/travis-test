@@ -103,12 +103,11 @@ jobs:
           echo $GITHUB_ACTION
           echo $GITHUB_SHA
           echo $GITHUB_REF
-          echo ${{ success() }}
+          
+      - name: fail
+        if: ${{ failure() }}
+        run: echo "FAIL!"
       
       - name: success
         if: ${{ success() }}
         run: echo "SUCCESS!"
-      
-      - name: fail
-        if: ${{ failure() }}
-        run: echo "FAIL!"
