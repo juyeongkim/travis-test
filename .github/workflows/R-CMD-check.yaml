@@ -103,6 +103,8 @@ jobs:
           echo $GITHUB_ACTION
           echo $GITHUB_SHA
           echo $GITHUB_REF
+          ${{ success() }}
+          success()
       
       - name: success
         if: ${{ success() }}
